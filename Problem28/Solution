@@ -1,0 +1,4 @@
+SELECT total_earnings, COUNT(*) FROM 
+(SELECT SALARY * MONTHS AS total_earnings FROM EMPLOYEE) as earnings
+GROUP BY total_earnings
+HAVING total_earnings = (SELECT MAX(SALARY*MONTHS) FROM EMPLOYEE)
